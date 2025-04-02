@@ -1,0 +1,10 @@
+apiRoutes:
+  - method: GET
+    path: /users
+    responseBody:
+      users: [{ id: 1, name: "John Doe" }, { id: 2, name: "Jane Doe" }]
+  - method: GET
+    path: /users/:id
+    responseBody:
+      id: 1
+      name: "John Doe"
