@@ -1,4 +1,4 @@
-import { All, Controller, Logger, Req, Res } from '@nestjs/common';
+import { All, Controller, HttpStatus, Logger, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
 
 import { HttpMethod } from '../../domain/HttpMethod';
@@ -20,8 +20,8 @@ export class EntryPointController {
     );
 
     return matchedRoute
-      ? res.status(200).json({ ...matchedRoute.responseBody })
-      : res.status(404).json({
+      ? res.status(HttpStatus.OK).json({ ...matchedRoute.responseBody })
+      : res.status(HttpStatus.NOT_FOUND).json({
           message: 'Not Found',
         });
   }
