@@ -16,7 +16,7 @@ export class EntryPointController {
 
     const matchedRoute = this.mockApiService.findMatchingMockApiRoute(
       method as HttpMethod,
-      url.replace('/mock/api', ''),
+      url.substring('/mock/api'.length, url.length),
     );
 
     return matchedRoute
